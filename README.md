@@ -23,7 +23,7 @@ $ cd Watch.js
 $ npm install
 ```
 
-# Minify
+# Build and Minify
 
 ```sh
 $ npm run build
@@ -47,5 +47,12 @@ $ npm test
 
 ```sh
 $ npm run lint
+```
+
+# Publish
+
+```sh
+$ npm run clean
+$ npm publish
 ```
 
