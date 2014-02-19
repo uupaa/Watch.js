@@ -1,0 +1,6 @@
+.vimrc*
+.git*
+.jshint*
+lint/
+
+
