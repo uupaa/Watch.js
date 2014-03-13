@@ -7,52 +7,26 @@ Watch directory and files.
 
 https://github.com/uupaa/Watch.js/wiki/Watch
 
-# Install dependency tools
+# for Developers
 
-```sh
-$ brew install closure-compiler
-$ brew install node
-$ npm install -g plato
-```
+1. Install development dependency tools
 
-# Clone Repository and Install
+    ```sh
+    $ brew install closure-compiler
+    $ brew install node
+    $ npm install -g plato
+    ```
 
-```sh
-$ git clone git@github.com:uupaa/Watch.js.git
-$ cd Watch.js
-$ npm install
-```
+2. Clone Repository and Install
 
-# Build and Minify
+    ```sh
+    $ git clone git@github.com:uupaa/Watch.js.git
+    $ cd Watch.js
+    $ npm install
+    ```
 
-```sh
-$ npm run build
+3. Watch
 
-    or
+    `$ npm run watch`
 
-$ node node_modules/uupaa.minify.js --keep --output ./lib/Watch.min.js ./lib/Watch.js
-```
-
-# Test
-
-```sh
-$ npm run test
-
-  or
-
-$ npm test
-```
-
-# Lint
-
-```sh
-$ npm run lint
-```
-
-# Publish
-
-```sh
-$ npm run clean
-$ npm publish
-```
 

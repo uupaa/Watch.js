@@ -1,6 +1,6 @@
 {
   "name":           "uupaa.watch.js",
-  "version":        "0.8.1",
+  "version":        "0.8.2",
   "description":    "",
   "url":            "https://github.com/uupaa/Watch.js",
   "keywords":       ["Watch", "util", "uupaa"],
@@ -10,10 +10,16 @@
   },
   "scripts": {
     "watch":        "node index.js --verbose --action build ./lib/Watch.js",
-    "build":        "node node_modules/uupaa.minify.js --keep --output ./lib/Watch.min.js ./lib/Watch.js",
-    "test":         "echo 'done.'",
-    "lint":         "plato --title Watch.js --jshint ./.jshintrc -d lint/plato lib/Watch.js; open lint/plato/index.html",
-    "clean":        "rm -rf lint/plato/assets"
+    "build":        "node node_modules/uupaa.minify.js --keep --option 'formatting pretty_print' --output ./lib/Watch.min.js ./lib/Watch.js",
+    "build-release":"node node_modules/uupaa.minify.js --module all --output ./lib/Watch.min.js",
+    "test":         "echo 'ok.'",
+    "lint":         "plato --title Watch.js --jshint .jshintrc -d lint/plato lib/Watch.js; open lint/plato/index.html"
+  },
+  "build": {
+    "all": { "lib/Watch.js": "" },
+    "node": { },
+    "worker": { },
+    "browser": { }
   },
   "dependencies": {
     "uupaa.sort.js":    ""
