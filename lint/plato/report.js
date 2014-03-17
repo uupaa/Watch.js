@@ -1,1 +1,63 @@
-__report = {"summary":{"total":{"sloc":245,"maintainability":69.38598047394096},"average":{"sloc":245,"maintainability":"69.39"}},"reports":[{"info":{"file":"lib/Watch.js","fileShort":"lib/Watch.js","fileSafe":"lib_Watch_js","link":"files/lib_Watch_js/index.html"},"jshint":{"messages":0},"complexity":{"aggregate":{"line":4,"complexity":{"sloc":{"physical":245,"logical":139},"cyclomatic":28,"halstead":{"operators":{"distinct":25,"total":325,"identifiers":["__stripped__"]},"operands":{"distinct":105,"total":395,"identifiers":["__stripped__"]},"length":720,"vocabulary":130,"difficulty":47.023809523809526,"volume":5056.1048253804875,"effort":237757.31024110626,"bugs":1.685368275126829,"time":13208.739457839236},"params":32}},"module":"lib/Watch.js","maintainability":69.38598047394096}}]}
+__report = {
+  "reports": [
+    {
+      "info": {
+        "file": "lib/Watch.js",
+        "fileShort": "lib/Watch.js",
+        "fileSafe": "lib_Watch_js",
+        "link": "files/lib_Watch_js/index.html"
+      },
+      "jshint": {
+        "messages": 0
+      },
+      "complexity": {
+        "aggregate": {
+          "line": 4,
+          "complexity": {
+            "sloc": {
+              "physical": 247,
+              "logical": 140
+            },
+            "cyclomatic": 29,
+            "halstead": {
+              "operators": {
+                "distinct": 25,
+                "total": 332,
+                "identifiers": [
+                  "__stripped__"
+                ]
+              },
+              "operands": {
+                "distinct": 106,
+                "total": 406,
+                "identifiers": [
+                  "__stripped__"
+                ]
+              },
+              "length": 738,
+              "vocabulary": 131,
+              "difficulty": 47.87735849056604,
+              "volume": 5190.666175134638,
+              "effort": 248515.38527177632,
+              "bugs": 1.7302220583782129,
+              "time": 13806.410292876462
+            },
+            "params": 34
+          }
+        },
+        "module": "lib/Watch.js",
+        "maintainability": 69.26920795114417
+      }
+    }
+  ],
+  "summary": {
+    "total": {
+      "sloc": 247,
+      "maintainability": 69.26920795114417
+    },
+    "average": {
+      "sloc": 247,
+      "maintainability": "69.27"
+    }
+  }
+}

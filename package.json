@@ -1,19 +1,20 @@
 {
   "name":           "uupaa.watch.js",
-  "version":        "0.8.2",
-  "description":    "",
+  "version":        "0.8.3",
+  "description":    "Watch directory and files.",
   "url":            "https://github.com/uupaa/Watch.js",
-  "keywords":       ["Watch", "util", "uupaa"],
+  "keywords":       ["Watch", "util", "uupaa", "WebModule"],
   "repository": {
     "type":         "git",
     "url":          "https://github.com/uupaa/Watch.js.git"
   },
   "scripts": {
     "watch":        "node index.js --verbose --action build ./lib/Watch.js",
-    "build":        "node node_modules/uupaa.minify.js --keep --option 'formatting pretty_print' --output ./lib/Watch.min.js ./lib/Watch.js",
-    "build-release":"node node_modules/uupaa.minify.js --module all --output ./lib/Watch.min.js",
-    "test":         "echo 'ok.'",
-    "lint":         "plato --title Watch.js --jshint .jshintrc -d lint/plato lib/Watch.js; open lint/plato/index.html"
+    "build":        "node node_modules/uupaa.minify.js --output ./lib/Watch.min.js --verbose --keep --pretty ./lib/Watch.js",
+    "build-simple": "node node_modules/uupaa.minify.js --output ./lib/Watch.min.js --verbose --keep --pretty --nowrap --simple ./lib/Watch.js",
+    "build-release":"node node_modules/uupaa.minify.js --output ./lib/Watch.min.js --verbose --build all",
+    "test":         "NODE_ENV=production NODE_PATH=lib node --harmony test/index.node.js; open test/index.html",
+    "lint":         "node lint/plato.js; open lint/plato/index.html"
   },
   "build": {
     "all": { "lib/Watch.js": "" },
@@ -22,13 +23,13 @@
     "browser": { }
   },
   "dependencies": {
+    "uupaa.valid.js":   "",
     "uupaa.sort.js":    ""
   },
   "devDependencies": {
     "uupaa.help.js":    "",
     "uupaa.task.js":    "",
     "uupaa.test.js":    "",
-    "uupaa.sort.js":    "",
     "uupaa.minify.js":  ""
   },
   "lib":            "./lib/",
