@@ -10,8 +10,7 @@
   },
   "scripts": {
     "watch":        "node index.js --verbose --action build",
-    "build":        "node node_modules/uupaa.minify.js --verbose --keep --pretty",
-    "lint":         "node node_modules/uupaa.plato.js bin/Watch.js; open lint/plato/index.html"
+    "lint":         "node node_modules/uupaa.plato.js; open lint/plato/index.html"
   },
   "x-build": {
     "inputs":       ["lib/Watch.js"],
@@ -22,7 +21,6 @@
     "uupaa.sort.js":    ""
   },
   "devDependencies": {
-    "uupaa.valid.js":   "",
     "uupaa.help.js":    "",
     "uupaa.task.js":    "",
     "uupaa.test.js":    "",
