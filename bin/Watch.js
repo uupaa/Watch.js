@@ -8,7 +8,10 @@ var _USAGE = '\n'+
 '                         [--verbose]\n' +
 '                         [--action script]\n' +
 '                         [--delay n]\n' +
-'                         watch-target-file [watch-target-file ...]\n';
+'                         watch-target-file [watch-target-file ...]\n' +
+'\n'+
+'   See:\n'+
+'       https://github.com/uupaa/Watch.js/wiki/Watch\n';
 
 var _CONSOLE_COLOR = {
         RED:    "\u001b[31m",

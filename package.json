@@ -1,6 +1,6 @@
 {
   "name":           "uupaa.watch.js",
-  "version":        "0.8.5",
+  "version":        "0.8.6",
   "description":    "Watch directory and files.",
   "url":            "https://github.com/uupaa/Watch.js",
   "keywords":       ["Watch", "util", "uupaa", "WebModule"],
