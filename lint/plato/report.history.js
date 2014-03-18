@@ -1,13 +1,13 @@
 __history = [
   {
-    "date": "Mon, 17 Mar 2014 06:31:50 GMT",
+    "date": "Tue, 18 Mar 2014 11:08:23 GMT",
     "total": {
-      "sloc": 247,
-      "maintainability": 69.26920795114417
+      "sloc": 244,
+      "maintainability": 69.45644518475025
     },
     "average": {
-      "sloc": 247,
-      "maintainability": "69.27"
+      "sloc": 244,
+      "maintainability": "69.46"
     }
   }
 ]

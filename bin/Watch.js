@@ -1,13 +1,14 @@
 #!/usr/bin/env node
 
-var _USAGE = "\n\
-    Usage:\n\
-        node bin/Watch.js [--help]\n\
-                          [--verbose]\n\
-                          [--action script]\n\
-                          [--delay n]\n\
-                          watch-target-file [watch-target-file ...]\n\
-";
+(function(global) {
+
+var _USAGE = '\n'+
+'   Usage:\n' +
+'       node bin/Watch.js [--help]\n' +
+'                         [--verbose]\n' +
+'                         [--action script]\n' +
+'                         [--delay n]\n' +
+'                         watch-target-file [watch-target-file ...]\n';
 
 var _CONSOLE_COLOR = {
         RED:    "\u001b[31m",
@@ -19,9 +20,10 @@ var fs      = require("fs");
 var Watch   = require("../lib/Watch");
 var Process = require("child_process");
 var argv    = process.argv.slice(2);
+var io      = _loadCurrentDirectoryPackageJSON();
 var options = _parseCommandLineOptions(argv, {
         help:   false,               // show help
-        paths:  [],                  // WatchTargetPathStringArray: [dir, file, ...]
+        inputs: io.inputs,           // WatchTargetPathStringArray: [dir, file, ...]
         delay:  1000,                // delay time (unit ms)
         action: "",                  // npm run {{action}}
         verbose: false,              // verbose
@@ -32,8 +34,12 @@ if (options.help) {
     console.log(_CONSOLE_COLOR.YELLOW + _USAGE + _CONSOLE_COLOR.CLEAR);
     return;
 }
+if (!options.inputs.length) {
+    console.log(_CONSOLE_COLOR.RED + "Input files are empty." + _CONSOLE_COLOR.CLEAR);
+    return;
+}
 
-Watch(options.paths, {
+Watch(options.inputs, {
     "delay":     options.delay,
     "action":    options.action,
     "verbose":   options.verbose,
@@ -48,33 +54,45 @@ Watch(options.paths, {
     }
 });
 
+function _loadCurrentDirectoryPackageJSON() {
+    var path   = "./package.json";
+    var json   = fs.existsSync(path) ? JSON.parse(fs.readFileSync(path, "utf8")) : {};
+    var build  = json["x-build"] || json["build"] || {};
+    var inputs = build.inputs || [];
+    var output = build.output || "";
+
+    return { inputs: inputs, output: output };
+}
+
 function _parseCommandLineOptions(argv, options) {
     for (var i = 0, iz = argv.length; i < iz; ++i) {
         switch (argv[i]) {
         case "-h":
-        case "--help":
-            options.help = true;
-            break;
+        case "--help":      options.help = true; break;
         case "-v":
-        case "--verbose":
-            options.verbose = true;
-            break;
-        case "--delay":
-            options.delay = argv[++i];
-            break;
-        case "--action":
-            options.action = argv[++i];
-            break;
+        case "--verbose":   options.verbose = true; break;
+        case "--delay":     options.delay = argv[++i]; break;
+        case "--action":    options.action = argv[++i]; break;
         default:
-            if (Watch.isFile(argv[i])) {
-                options.paths.push(argv[i]);
-            } else if (Watch.isDir(argv[i])) {
-                options.paths.push(argv[i].replace(/\/+$/, "") + "/");
+            var path = argv[i];
+
+            if (fs.existsSync(path) && fs.statSync(path).isFile()) {
+                if (options.inputs.indexOf(path) < 0) { // avoid duplicate
+                    options.inputs.push(path);
+                }
+            } else if (fs.existsSync(path) && fs.statSync(path).isDirectory()) {
+                path = path.replace(/\/+$/, "") + "/"; // supply tail slash. "path" -> "path/"
+
+                if (options.inputs.indexOf(path) < 0) { // avoid duplicate
+                    options.inputs.push(path);
+                }
             } else {
-                console.log(_CONSOLE_COLOR.RED + "invalid path: " + argv[i] + _CONSOLE_COLOR.CLEAR);
+                console.log(_CONSOLE_COLOR.RED + "invalid path: " + path + _CONSOLE_COLOR.CLEAR);
             }
         }
     }
     return options;
 }
+
+})((this || 0).self || global);
 
