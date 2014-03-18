@@ -1,6 +1,6 @@
 {
   "name":           "uupaa.watch.js",
-  "version":        "0.8.4",
+  "version":        "0.8.5",
   "description":    "Watch directory and files.",
   "url":            "https://github.com/uupaa/Watch.js",
   "keywords":       ["Watch", "util", "uupaa", "WebModule"],
@@ -11,7 +11,7 @@
   "scripts": {
     "watch":        "node index.js --verbose --action build",
     "build":        "node node_modules/uupaa.minify.js --verbose --keep --pretty",
-    "lint":         "node node_modules/uupaa.plato.js/bin/Plato.js bin/Watch.js; open lint/plato/index.html"
+    "lint":         "node node_modules/uupaa.plato.js bin/Watch.js; open lint/plato/index.html"
   },
   "x-build": {
     "inputs":       ["lib/Watch.js"],
