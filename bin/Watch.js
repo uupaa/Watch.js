@@ -54,7 +54,7 @@ Watch(options.inputs, {
 
         Process.exec(command, function(err, stdout, stderr) {
                         if (options.verbose) {
-                            console.log(_CONSOLE_COLOR.YELLOW + "    command: " + _CONSOLE_COLOR.CLEAR + command);
+                            console.log(_CONSOLE_COLOR.YELLOW + "  command: " + _CONSOLE_COLOR.CLEAR + command);
                         }
                      });
     }
