@@ -1,6 +1,6 @@
 {
   "name":           "uupaa.watch.js",
-  "version":        "0.8.6",
+  "version":        "0.8.7",
   "description":    "Watch directory and files.",
   "url":            "https://github.com/uupaa/Watch.js",
   "keywords":       ["Watch", "util", "uupaa", "WebModule"],
@@ -14,18 +14,13 @@
   },
   "x-build": {
     "inputs":       ["lib/Watch.js"],
-    "output":       "lib/Watch.min.js"
+    "output":       "release/Watch.min.js"
   },
   "dependencies": {
-    "uupaa.valid.js":   "",
     "uupaa.sort.js":    ""
   },
   "devDependencies": {
-    "uupaa.help.js":    "",
-    "uupaa.task.js":    "",
-    "uupaa.test.js":    "",
-    "uupaa.plato.js":   "",
-    "uupaa.minify.js":  ""
+    "uupaa.plato.js":   ""
   },
   "lib":            "./lib/",
   "main":           "./index.js",

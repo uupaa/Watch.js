@@ -2,16 +2,17 @@
 
 (function(global) {
 
-var _USAGE = '\n'+
-'   Usage:\n' +
-'       node bin/Watch.js [--help]\n' +
-'                         [--verbose]\n' +
-'                         [--action script]\n' +
-'                         [--delay n]\n' +
-'                         watch-target-file [watch-target-file ...]\n' +
-'\n'+
-'   See:\n'+
-'       https://github.com/uupaa/Watch.js/wiki/Watch\n';
+var _USAGE = _multiline(function() {/*
+    Usage:
+        node bin/Watch.js [--help]
+                          [--verbose]
+                          [--action script]
+                          [--delay n]
+                          watch-target-file [watch-target-file ...]
+
+    See:
+        https://github.com/uupaa/Watch.js/wiki/Watch
+*/});
 
 var _CONSOLE_COLOR = {
         RED:    "\u001b[31m",
@@ -95,6 +96,11 @@ function _parseCommandLineOptions(argv, options) {
         }
     }
     return options;
+}
+
+function _multiline(fn) { // @arg Function:
+                          // @ret String:
+    return (fn + "").split("\n").slice(1, -1).join("\n");
 }
 
 })((this || 0).self || global);
