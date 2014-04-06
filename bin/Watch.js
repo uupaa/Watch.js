@@ -53,7 +53,9 @@ Watch(options.inputs, {
         var command = "npm run " + options.action;
 
         Process.exec(command, function(err, stdout, stderr) {
-                        console.log(_CONSOLE_COLOR.YELLOW + "    command  " + _CONSOLE_COLOR.CLEAR + command);
+                        if (options.verbose) {
+                            console.log(_CONSOLE_COLOR.YELLOW + "    command: " + _CONSOLE_COLOR.CLEAR + command);
+                        }
                      });
     }
 });
