@@ -1,32 +1,17 @@
+=========
 Watch.js
 =========
+
+![](https://travis-ci.org/uupaa/Watch.js.png)
 
 Watch directory and files.
 
 # Document
 
-https://github.com/uupaa/Watch.js/wiki/Watch
-
-# for Developers
-
-1. Install development dependency tools
-
-    ```sh
-    $ brew install closure-compiler
-    $ brew install node
-    $ npm install -g plato
-    ```
-
-2. Clone Repository and Install
-
-    ```sh
-    $ git clone git@github.com:uupaa/Watch.js.git
-    $ cd Watch.js
-    $ npm install
-    ```
-
-3. Watch
-
+- [WebModule](https://github.com/uupaa/WebModule) ([Slide](http://uupaa.github.io/Slide/slide/WebModule/index.html))
+- [Development](https://github.com/uupaa/WebModule/wiki/Development)
+- [Watch.js wiki](https://github.com/uupaa/Watch.js/wiki/Watch)
+# How to use
+    
     `$ npm run watch`
-
 
