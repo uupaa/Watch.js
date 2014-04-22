@@ -1,0 +1,25 @@
+{
+  "name": {
+    "git": "Watch.js",
+    "npm": "uupaa.watch.js"
+  },
+  "build": {
+    "files": [
+      "lib/Watch.js"
+    ],
+    "output": "release/Watch.min.js",
+    "target": []
+  },
+  "moduleTargets": {
+    "uupaa.watch.js": [],
+    "uupaa.minify.js": []
+  },
+  "dependenciesFiles": [],
+  "dependenciesModules": [],
+  "devDependenciesFiles": [
+    "node_modules/uupaa.minify.js/lib/Minify.js"
+  ],
+  "devDependenciesModules": [
+    "uupaa.minify.js"
+  ]
+}

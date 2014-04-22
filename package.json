@@ -1,6 +1,6 @@
 {
   "name":           "uupaa.watch.js",
-  "version":        "0.8.11",
+  "version":        "0.8.12",
   "description":    "Watch directory and files.",
   "url":            "https://github.com/uupaa/Watch.js",
   "keywords":       ["Watch", "util", "uupaa", "WebModule"],
@@ -9,24 +9,26 @@
     "url":          "https://github.com/uupaa/Watch.js.git"
   },
   "scripts": {
-    "watch":        "node index.js --verbose --action build",
-    "test":         "npm run test-node; npm run test-browser",
+    "watch":        "",
+    "build":        "",
+    "test":         "",
+    "test-update":  "",
     "test-node":    "",
     "test-browser": "",
-    "lint":         "node node_modules/uupaa.plato.js; open lint/plato/index.html"
+    "lint":         ""
   },
   "x-build": {
-    "inputs":       ["lib/Watch.js"],
-    "output":       "release/Watch.min.js"
+    "files":        ["lib/Watch.js"],
+    "output":       "release/Watch.min.js",
+    "target":       []
   },
   "dependencies": {
-    "uupaa.sort.js":    ""
   },
   "devDependencies": {
-    "uupaa.plato.js":   ""
   },
+  "bin":            "./bin/Watch.js",
   "lib":            "./lib/",
-  "main":           "./index.js",
+  "main":           "./bin/Watch.js",
   "author":         "uupaa <uupaa.js@gmail.com>",
   "license":        "MIT",
   "contributors":   []
