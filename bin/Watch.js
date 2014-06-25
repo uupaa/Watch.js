@@ -2,7 +2,7 @@
 
 (function(global) {
 
-var _USAGE = _multiline(function() {/*
+var USAGE = _multiline(function() {/*
     Usage:
         node bin/Watch.js [--help]
                           [--verbose]
@@ -14,7 +14,7 @@ var _USAGE = _multiline(function() {/*
         https://github.com/uupaa/Watch.js/wiki/Watch
 */});
 
-var _CONSOLE_COLOR = {
+var CONSOLE_COLOR = {
         RED:    "\u001b[31m",
         YELLOW: "\u001b[33m",
         CLEAR:  "\u001b[0m"
@@ -24,10 +24,10 @@ var fs      = require("fs");
 var Watch   = require("../lib/Watch");
 var Process = require("child_process");
 var argv    = process.argv.slice(2);
-var io      = _loadCurrentDirectoryPackageJSON();
+var pkg      = _loadCurrentDirectoryPackageJSON();
 var options = _parseCommandLineOptions(argv, {
         help:   false,               // show help
-        inputs: io.inputs,           // WatchTargetPathStringArray: [dir, file, ...]
+        source: pkg.source,          // WatchTargetPathStringArray: [dir, file, ...]
         delay:  1000,                // delay time (unit ms)
         action: "",                  // npm run {{action}}
         verbose: false,              // verbose
@@ -35,15 +35,15 @@ var options = _parseCommandLineOptions(argv, {
     });
 
 if (options.help) {
-    console.log(_CONSOLE_COLOR.YELLOW + _USAGE + _CONSOLE_COLOR.CLEAR);
+    console.log(CONSOLE_COLOR.YELLOW + USAGE + CONSOLE_COLOR.CLEAR);
     return;
 }
-if (!options.inputs.length) {
-    console.log(_CONSOLE_COLOR.RED + "Input files are empty." + _CONSOLE_COLOR.CLEAR);
+if (!options.source.length) {
+    console.log(CONSOLE_COLOR.RED + "Input files are empty." + CONSOLE_COLOR.CLEAR);
     return;
 }
 
-Watch(options.inputs, {
+Watch(options.source, {
     "delay":     options.delay,
     "action":    options.action,
     "verbose":   options.verbose,
@@ -54,7 +54,7 @@ Watch(options.inputs, {
 
         Process.exec(command, function(err, stdout, stderr) {
                         if (options.verbose) {
-                            console.log(_CONSOLE_COLOR.YELLOW + "  command: " + _CONSOLE_COLOR.CLEAR + command);
+                            console.log(CONSOLE_COLOR.YELLOW + "  command: " + CONSOLE_COLOR.CLEAR + command);
                         }
                      });
     }
@@ -64,10 +64,10 @@ function _loadCurrentDirectoryPackageJSON() {
     var path   = "./package.json";
     var json   = fs.existsSync(path) ? JSON.parse(fs.readFileSync(path, "utf8")) : {};
     var build  = json["x-build"] || json["build"] || {};
-    var inputs = build.inputs || [];
+    var source = build.source || build.inputs || build.files || [];
     var output = build.output || "";
 
-    return { inputs: inputs, output: output };
+    return { source: source, output: output };
 }
 
 function _parseCommandLineOptions(argv, options) {
@@ -83,17 +83,17 @@ function _parseCommandLineOptions(argv, options) {
             var path = argv[i];
 
             if (fs.existsSync(path) && fs.statSync(path).isFile()) {
-                if (options.inputs.indexOf(path) < 0) { // avoid duplicate
-                    options.inputs.push(path);
+                if (options.source.indexOf(path) < 0) { // avoid duplicate
+                    options.source.push(path);
                 }
             } else if (fs.existsSync(path) && fs.statSync(path).isDirectory()) {
                 path = path.replace(/\/+$/, "") + "/"; // supply tail slash. "path" -> "path/"
 
-                if (options.inputs.indexOf(path) < 0) { // avoid duplicate
-                    options.inputs.push(path);
+                if (options.source.indexOf(path) < 0) { // avoid duplicate
+                    options.source.push(path);
                 }
             } else {
-                console.log(_CONSOLE_COLOR.RED + "invalid path: " + path + _CONSOLE_COLOR.CLEAR);
+                console.log(CONSOLE_COLOR.RED + "invalid path: " + path + CONSOLE_COLOR.CLEAR);
             }
         }
     }
