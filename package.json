@@ -1,6 +1,6 @@
 {
   "name":           "uupaa.watch.js",
-  "version":        "0.8.15",
+  "version":        "0.8.16",
   "description":    "Watch directory and files.",
   "url":            "https://github.com/uupaa/Watch.js",
   "keywords":       ["Watch", "util", "uupaa", "WebModule", "Stable"],
@@ -21,7 +21,7 @@
     "source":       ["lib/Watch.js"],
     "output":       "release/Watch.min.js",
     "target":       [],
-    "labels":       ["@dev"],
+    "label":        ["@dev"],
     "module": {
       "develop":    [],
       "release":    []
