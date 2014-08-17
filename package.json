@@ -1,6 +1,6 @@
 {
   "name":           "uupaa.watch.js",
-  "version":        "0.8.16",
+  "version":        "0.8.17",
   "description":    "Watch directory and files.",
   "url":            "https://github.com/uupaa/Watch.js",
   "keywords":       ["Watch", "util", "uupaa", "WebModule", "Stable"],
@@ -9,12 +9,21 @@
     "url":          "https://github.com/uupaa/Watch.js.git"
   },
   "scripts": {
+    "init":         "npm update; npm run build; npm run test-page",
     "watch":        "",
     "build":        "",
+    "build-simple": "",
+    "build-release":"",
     "test":         "",
-    "test-update":  "",
+    "test-page":    "",
+    "test-debug":   "",
     "test-node":    "",
     "test-browser": "",
+    "test-sim":     "",
+    "server":       "http-server -c-1 -p 8585 &",
+    "server-stop":  "",
+    "server-kill":  "killall -- node /usr/local/bin/http-server -p 8585 ; exit 0",
+    "hint":         "jshint lib/*.js",
     "lint":         ""
   },
   "x-build": {
